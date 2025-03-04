@@ -14,23 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: npm ci && npm run build
-      - name: Use Node.js
-        uses: actions/setup-node@v3
+      - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          node-version: '18' # Or your Node.js version
-      - name: Install Firebase CLI
-        run: npm install -g firebase-tools
-      - name: Authenticate Firebase
-        run: firebase login:ci --no-localhost
-      - name: Deploy to Firebase
-        run: firebase deploy --only hosting
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_IUT_PORTFOLIO }}
-
-      #- uses: actions/checkout@v4
-      #- run: npm ci && npm run build
-      #- uses: FirebaseExtended/action-hosting-deploy@v0
-      #  with:
-      #    repoToken: ${{ secrets.GITHUB_TOKEN }}
-      #    firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_IUT_PORTFOLIO }}
-      #    projectId: iut-portfolio
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_IUT_PORTFOLIO }}
+          projectId: porfolio-2025-angular
