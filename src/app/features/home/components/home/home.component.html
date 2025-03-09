@@ -1,0 +1,34 @@
+<div class="home-container">
+    <!-- Presentation Section -->
+    <section class="presentation">
+      <div class="presentation-content">
+        <h1>Hi, I'm Aurélien Habermacher</h1>
+        <p>A passionate developer creating innovative solutions.</p>
+        <a href="#projects" class="cta-btn">Check out my projects</a>
+      </div>
+    </section>
+  
+    <!-- Skills Section -->
+    <section class="skills">
+      <h2>Skills</h2>
+      <div class="skills-list">
+        <div class="skill-card" *ngFor="let skill of skills">
+          <img [src]="skill.logo" alt="{{skill.name}}" />
+          <p>{{skill.name}}</p>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Projects Section -->
+    <app-carousel [items]="projects"></app-carousel>
+  
+    <!-- About Section -->
+    <section class="about">
+      <h2>About Me</h2>
+      <p>
+        I'm a passionate developer with a love for building web applications. I
+        specialize in frontend development using Angular and other modern
+        technologies. I'm constantly learning and striving to improve my skills.
+      </p>
+    </section>
+  </div>
