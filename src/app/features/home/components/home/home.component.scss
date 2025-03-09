@@ -1,90 +1,110 @@
 .home-container {
-    font-family: 'Arial', sans-serif;
-    color: #333;
-  }
-  
+  font-family: 'Arial', sans-serif;
+  color: #333;
+
   .presentation {
-    background: linear-gradient(135deg, #007BFF, #6C63FF);
     color: white;
     padding: 100px 20px;
     text-align: center;
+    background-size: cover; /* Ensures the image covers the entire space */
+    background-position: center; /* Optional, to ensure the image is centered */
+    background-repeat: no-repeat; /* Optional, to prevent repeating the image */
+    background-image: linear-gradient(to bottom, #1a191dFF 0%, #1a191d35 50%, #1a191dFF 100%), url("/images/background_home.jpg");
+
+    h1 {
+      font-size: 8vh;
+      text-transform: uppercase;
+      text-shadow: 1px 3px 11px rgba(0,0,0,.3);
+    }
+
+    h5 {
+      font-size: 22px;
+      text-transform: uppercase;
+      font-family: 'Roboto Mono', sans-serif;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .cta-btn {
+      background-color: #ff4081;
+      color: white;
+      padding: 15px 30px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1rem;
+
+      &:hover {
+        background-color: #e33566;
+      }
+    }
   }
-  
-  .presentation h1 {
-    font-size: 3rem;
-  }
-  
-  .presentation p {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-  }
-  
-  .cta-btn {
-    background-color: #ff4081;
-    color: white;
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1rem;
-  }
-  
-  .cta-btn:hover {
-    background-color: #e33566;
-  }
-  
+
   .skills, .projects, .about {
     padding: 50px 20px;
+    color: whitesmoke;
+
+    h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: white;
+    }
   }
-  
-  .skills h2, .projects h2, .about h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 30px;
+
+  .skills {
+    .skills-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      .skill-card {
+        text-align: center;
+        margin: 20px;
+        padding: 20px;
+        background-color: #f4f4f4;
+        border-radius: 10px;
+        width: 150px;
+
+        img {
+          max-width: 50px;
+        }
+      }
+    }
   }
-  
-  .skills-list {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+
+  .projects {
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      background-color: #f4f4f4;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+      img {
+        max-width: 100%;
+        border-radius: 5px;
+      }
+
+      .project-info {
+        margin-top: 20px;
+
+        h3 {
+          font-size: 1.5rem;
+        }
+
+        p {
+          font-size: 1rem;
+        }
+      }
+    }
   }
-  
-  .skill-card {
-    text-align: center;
-    margin: 20px;
-    padding: 20px;
-    background-color: #f4f4f4;
-    border-radius: 10px;
-    width: 150px;
+
+  .about {
+    p {
+      font-size: 1rem;
+    }
   }
-  
-  .skill-card img {
-    max-width: 50px;
-  }
-  
-  .project-card {
-    display: flex;
-    flex-direction: column;
-    background-color: #f4f4f4;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 10px;
-    width: 300px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .project-card img {
-    max-width: 100%;
-    border-radius: 5px;
-  }
-  
-  .project-info {
-    margin-top: 20px;
-  }
-  
-  .project-info h3 {
-    font-size: 1.5rem;
-  }
-  
-  .project-info p {
-    font-size: 1rem;
-  }
+}

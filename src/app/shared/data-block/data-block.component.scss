@@ -1,0 +1,110 @@
+section {
+  padding: 20px;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+
+    .list-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      position: relative;
+      color: whitesmoke;
+      border: 3px gray solid;
+      padding-inline: 30px;
+      padding-block: 20px;
+      max-width: 30vw;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; // Add transition for animation
+      
+      &:hover {
+        transform: translateY(-10px); // Moves the item upwards
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); // Adds a shadow effect for depth
+        cursor: pointer; // Changes the cursor to indicate it's clickable
+      }
+
+      .item-content {
+          display: flex;
+          flex-direction: column;
+          position: relative;
+        
+          .item-upper-block {
+              min-width: fit-content;
+              min-height: fit-content;
+              max-width: 50vw;
+              max-height: 30vh;
+              margin-right: 15px;
+              display: flex;
+              
+              img {
+                  max-width: 5vw;
+                  max-height: 15vh;
+                  object-fit: scale-down;
+                  margin-left: 10px;
+              }
+              
+              .title {
+                  min-width: fit-content;
+                  min-height: fit-content;
+                  font-weight: bold;
+                  margin-bottom: 10px;
+                  position: relative; 
+                  margin-left: 20px;
+              }
+          }
+
+          .description {
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              padding: 20px;
+              color: #fff;
+              word-wrap: break-word;
+
+              h3 {
+                  font-family: "Roboto Mono", Sans-serif;
+                  font-weight: 400;
+                  line-height: 1.4em;
+                  font-weight: lighter;
+                  margin-top: 5px;
+                  margin-bottom: 10px;
+                  position: relative;
+                  z-index: 1;
+              }
+
+              .effect-opening,
+              .effect-closing {
+                  position: absolute;
+                  z-index: 1;
+                  color: gray;
+                  opacity: .5;
+              }
+
+              .effect-opening {
+                  left: -30px;
+                  top: -10px;
+              }
+
+              .effect-closing {
+                  bottom: 10px;
+                  left: -33px;
+              }
+
+              &::before {
+                content: '';
+                position: absolute;
+                left: -14px;
+                top: 15px;
+                width: 3px;
+                height: calc(100% - 50px);
+                background-color: #5f5f5f;
+                border-radius: 20%;
+                opacity: .5;
+              }
+          }
+      }
+    }
+  }
+}
