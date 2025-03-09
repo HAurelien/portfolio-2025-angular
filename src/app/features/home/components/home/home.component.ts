@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { DataBlockModel } from '../../../../shared/models/data-block.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -6,13 +8,23 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  constructor(private readonly router: Router){}
 
-  skills = [
-    { name: 'Angular', logo: 'images/angular-logo.png' },
-    { name: 'TypeScript', logo: 'images/typescript-logo.png' },
-    { name: 'JavaScript', logo: 'images/javascript-logo.png' },
-    { name: 'CSS', logo: 'images/css-logo.png' },
-    { name: 'Git', logo: 'images/git-logo.png' },
+  backgroundImageUrl = "images/background_home.jpg"
+
+  skills : DataBlockModel[] = [
+    {
+      title: 'Software Development',
+      description: 'My experience, mostly in OOP: from java server apps to python softwares or C# games',
+      icon: 'icons/brain_cogwheel.png',
+      onClick: () => {this.router.navigateByUrl("home/skills/backend")}
+    },
+    {
+      title: 'Frontend Dev',
+      description: 'My experience in developing frontend of my server apps',
+      icon: 'icons/angular.png',
+      onClick: () => {this.router.navigateByUrl("home/skills/frontend")}
+    },
   ];
 
   projects = [
