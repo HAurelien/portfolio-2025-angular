@@ -1,0 +1,14 @@
+/* local-notification.component.scss */
+.local-notification {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: opacity 1s ease-in-out;
+}
+
+.local-notification.show {
+  transition: opacity 1s ease-in-out;
+}
