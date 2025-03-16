@@ -1,3 +1,39 @@
+.filter-container {
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #3a3f45;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    font-size: 1.8em;
+    color: #f4f4f9;
+    margin-bottom: 15px;
+  }
+
+  .category-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    label {
+      font-size: 1.2em;
+      color: #d1d1d1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+
+
 .backend-container {
   color: white;
   margin: 0 auto;

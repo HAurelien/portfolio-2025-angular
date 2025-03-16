@@ -1,45 +1,48 @@
+
+<!-- Project List Section -->
 <div class="backend-container">
-    <h2>Software Development Experience</h2>
-    <div class="project-list-container">
-      <ul class="project-list">
-        <li *ngFor="let project of project_list" class="project-container">
-          <div class="header" (click)="toggleContent(project)">
-            <h3>{{ project.name }}</h3>
-            <p>{{ project.catchphrase }}</p>
-            <div class="toggle-icon" [ngClass]="{'collapsed': project.collapsed, 'expanded': !project.collapsed}">
-              <span></span>
-            </div>
+  <h2>Software Development Experience</h2>
+
+  <app-search-filter 
+  [categoryList]="category_list" 
+  (searchQueryChanged)="onSearchQueryChange($event)" 
+  (categoriesChanged)="onCategoriesChanged($event)"
+></app-search-filter>
+  <div class="project-list-container">
+    <ul class="project-list">
+      <li *ngFor="let project of filtered_list$ | async" class="project-container">
+        <div class="header" (click)="toggleContent(project)">
+          <h3>{{ project.name }}</h3>
+          <p>{{ project.catchphrase }}</p>
+          <div class="toggle-icon" [ngClass]="{'collapsed': project.collapsed, 'expanded': !project.collapsed}">
+            <span></span>
           </div>
-          
-          
-          <!-- Content Section -->
-          <div class="content" *ngIf="!project.collapsed">
-            <div class="description">
-              <p>{{ project.description }}</p> <!-- Longer description shown when expanded -->
-            </div>
-            <div class="features">
-              <div class="feature" *ngFor="let feature of project.features">
-                <div class="feature-image" (click)="openModal(feature.image)">
-                  <img [src]="feature.image" alt="Image failed loading...">
-                </div>
-                <div class="feature-text">
-                  <h4>{{ feature.title }}</h4>
-                  <p>{{ feature.description }}</p>
-                </div>
+        </div>
+
+        <!-- Content Section -->
+        <div class="content" *ngIf="!project.collapsed">
+          <div class="description">
+            <p>{{ project.description }}</p>
+          </div>
+          <div class="features">
+            <div class="feature" *ngFor="let feature of project.features">
+              <div class="feature-image" (click)="openModal(feature.image)">
+                <img [src]="feature.image" alt="Image failed loading...">
+              </div>
+              <div class="feature-text">
+                <h4>{{ feature.title }}</h4>
+                <p>{{ feature.description }}</p>
               </div>
             </div>
-            <ul class="technologies">
-              <li *ngFor="let techno of project.technologies">
-                <img [src]="techno.icon" alt="" class="tech-icon">
-                <span>{{ techno.name }}</span>
-              </li>
-            </ul>
           </div>
-        </li>
-      </ul>
-    </div>
-  
-    <!-- Modal for displaying images -->
-    <app-image-modal *ngIf="selectedImage" [imageSrc]="selectedImage" (close)="closeModal()"></app-image-modal>
+          <ul class="technologies">
+            <li *ngFor="let techno of project.technologies">
+              <img [src]="techno.icon" alt="" class="tech-icon">
+              <span>{{ techno.name }}</span>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
   </div>
-  
+</div>
