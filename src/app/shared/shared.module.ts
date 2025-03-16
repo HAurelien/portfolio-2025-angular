@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CarouselComponent } from './carousel/carousel.component';
 import { LocalNotificationComponent } from './local-notification/local-notification.component';
 import { DataBlockComponent } from './data-block/data-block.component';
+import { ImageModalComponent } from './image-modal/image-modal.component';
 
 
 
@@ -10,7 +11,8 @@ import { DataBlockComponent } from './data-block/data-block.component';
   declarations: [
     CarouselComponent,
     LocalNotificationComponent,
-    DataBlockComponent
+    DataBlockComponent,
+    ImageModalComponent
   ],
   imports: [
     CommonModule
@@ -18,7 +20,8 @@ import { DataBlockComponent } from './data-block/data-block.component';
   exports: [
     CarouselComponent,
     LocalNotificationComponent,
-    DataBlockComponent
+    DataBlockComponent,
+    ImageModalComponent
   ]
 })
 export class SharedModule { }

@@ -14,7 +14,7 @@ export class HeaderComponent {
   
   menuItems = [
     { label: '// home', link: '/home-section' },
-    { label: '// expertise', link: '/expertise' },
+    { label: '// expertise', link: '/skills' },
     { label: '// work', link: '/work' },
     { label: '// experience', link: '/experience' },
     { label: '// contact', link: '/contact' }
@@ -24,7 +24,7 @@ export class HeaderComponent {
 
   // Method to handle navigation
   navigateTo(link: string): void {
-    this.router.navigate([link]);
+    this.router.navigateByUrl(link);
     if (this.isMenuOpen) {
       this.toggleMenu(); // Close the menu after navigation
     }
