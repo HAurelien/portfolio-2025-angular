@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { CarouselComponent } from './carousel/carousel.component';
 import { LocalNotificationComponent } from './local-notification/local-notification.component';
 import { DataBlockComponent } from './data-block/data-block.component';
+import { AngularD3CloudModule } from 'angular-d3-cloud'
+import { WordCloudComponent } from './word-cloud/word-cloud.component';
 
 
 
@@ -10,15 +12,18 @@ import { DataBlockComponent } from './data-block/data-block.component';
   declarations: [
     CarouselComponent,
     LocalNotificationComponent,
-    DataBlockComponent
+    DataBlockComponent,
+    WordCloudComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AngularD3CloudModule,
   ],
   exports: [
     CarouselComponent,
     LocalNotificationComponent,
-    DataBlockComponent
+    DataBlockComponent,
+    WordCloudComponent,
   ]
 })
 export class SharedModule { }
