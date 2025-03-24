@@ -6,6 +6,8 @@ import { DataBlockComponent } from './data-block/data-block.component';
 import { ImageModalComponent } from './image-modal/image-modal.component';
 import { SearchFilterComponent } from './search-filter/search-filter.component';
 import { FormsModule } from "@angular/forms"
+import { AngularD3CloudModule } from 'angular-d3-cloud'
+import { WordCloudComponent } from './word-cloud/word-cloud.component';
 
 
 
@@ -16,17 +18,20 @@ import { FormsModule } from "@angular/forms"
     DataBlockComponent,
     ImageModalComponent,
     SearchFilterComponent
+    WordCloudComponent,
   ],
   imports: [
     CommonModule,
     FormsModule
+    AngularD3CloudModule,
   ],
   exports: [
     CarouselComponent,
     LocalNotificationComponent,
     DataBlockComponent,
     ImageModalComponent,
-    SearchFilterComponent
+    SearchFilterComponent,
+    WordCloudComponent,
   ]
 })
 export class SharedModule { }
