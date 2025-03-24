@@ -1,0 +1,28 @@
+<div class="search-container">
+    <input 
+      type="text" 
+      [(ngModel)]="searchQuery" 
+      (input)="onSearchChange()" 
+      placeholder="Search for projects..."
+      class="search-bar"
+    />
+  </div>
+  
+  <div class="filter-menu">
+    <button (click)="toggleFilterMenu()" class="filter-toggle">
+      Filter by Categories
+    </button>
+    <div class="categories" *ngIf="isFilterMenuOpen">
+      <div class="category" *ngFor="let category of categoryList">
+        <label>
+          <input 
+            type="checkbox" 
+            [checked]="selectedCategories.includes(category)" 
+            (change)="toggleCategory(category, $event)" 
+          />
+          {{ category }}
+        </label>
+      </div>
+    </div>
+  </div>
+  

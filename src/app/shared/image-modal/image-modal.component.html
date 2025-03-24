@@ -1,0 +1,5 @@
+<div class="modal" *ngIf="imageSrc" (click)="closeModal()">
+    <span class="close-btn" (click)="closeModal()">×</span>
+    <img class="modal-content" [src]="imageSrc" alt="Modal Image">
+  </div>
+  

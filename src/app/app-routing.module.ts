@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'skills', loadChildren: () => import('./features/skills/skills.module').then(m => m.SkillsModule)
+  },
+  {
     path: '', loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule),
   },
   {
