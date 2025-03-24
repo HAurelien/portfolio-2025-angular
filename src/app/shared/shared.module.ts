@@ -17,12 +17,12 @@ import { WordCloudComponent } from './word-cloud/word-cloud.component';
     LocalNotificationComponent,
     DataBlockComponent,
     ImageModalComponent,
-    SearchFilterComponent
+    SearchFilterComponent,
     WordCloudComponent,
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
     AngularD3CloudModule,
   ],
   exports: [
