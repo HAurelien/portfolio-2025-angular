@@ -8,6 +8,7 @@ import { SearchFilterComponent } from './search-filter/search-filter.component';
 import { FormsModule } from "@angular/forms"
 import { AngularD3CloudModule } from 'angular-d3-cloud'
 import { WordCloudComponent } from './word-cloud/word-cloud.component';
+import { AppearOnScrollDirective } from './directives/appear-on-scroll/appear-on-scroll.directive';
 
 
 
@@ -19,6 +20,7 @@ import { WordCloudComponent } from './word-cloud/word-cloud.component';
     ImageModalComponent,
     SearchFilterComponent,
     WordCloudComponent,
+    AppearOnScrollDirective,
   ],
   imports: [
     CommonModule,
@@ -32,6 +34,7 @@ import { WordCloudComponent } from './word-cloud/word-cloud.component';
     ImageModalComponent,
     SearchFilterComponent,
     WordCloudComponent,
+    AppearOnScrollDirective,
   ]
 })
 export class SharedModule { }

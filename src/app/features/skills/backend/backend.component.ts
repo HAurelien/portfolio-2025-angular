@@ -1,6 +1,7 @@
 import { Component, computed, OnInit, Signal } from '@angular/core';
 import { Project } from '../models/project.model';
 import { BehaviorSubject } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-backend',
@@ -14,9 +15,15 @@ export class BackendComponent implements OnInit {
   searchQuery: string = '';
   selectedImage: string | null = null;
 
+  constructor(private readonly activatedRoute: ActivatedRoute){}
+
   ngOnInit(): void {
     this.category_list = [...new Set(this.project_list.flatMap(project => project.categories))];
-    this.filtered_list$.next(this.project_list); // Initial list
+    this.filtered_list$.next(this.project_list);
+    this.activatedRoute.paramMap.subscribe(params => {
+      let category = params.get('type')
+      if(category != null) this.selected_categories.push(category);
+    });
   }
 
   onSearchQueryChange(searchQuery: string): void {
@@ -68,7 +75,7 @@ export class BackendComponent implements OnInit {
     {
       name: "Mobile Business Tracking",
       collapsed: false,
-      categories: ["Backend", "Phone", "Framework"],
+      categories: ["Backend", "Phone", "Framework", "Frontend", "Mobile"],
       catchphrase: "An app to allow building caretakers to work on the ERP from their phones",
       description: "During my internship at ACG-SYNERGIES, I had the opportunity to work on this project alongside an incredible team. Thanks to our collaborative efforts and agile methodology, we were able to deliver a high-quality product all by meeting the deadlines.",
       features: [
@@ -96,7 +103,7 @@ export class BackendComponent implements OnInit {
     {
       name: "RPG-AI",
       collapsed: false,
-      categories: ["Backend", "AI", "Framework"],
+      categories: ["Backend", "AI", "Framework", "Frontend"],
       catchphrase: "An AI-powered tool for game masters to create amazing worlds faster than ever",
       description: "This was the final project I led during my scholarship, where I managed a team of three. Despite the complexity of the task and our limited expertise in AI, we were able to deliver a robust tool within a relatively short timeframe, overcoming the technical challenges",
       features: [
@@ -136,7 +143,7 @@ export class BackendComponent implements OnInit {
     {
       name: "FileChat",
       collapsed: false,
-      categories: ["Backend", "Framework"],
+      categories: ["Backend", "Framework", "Frontend"],
       catchphrase: "A chat application to help students create amazing projects toguether",
       description: "This was our first major project during my scholarship. Leading a project that spanned several months was an incredibly valuable experience. It provided me with a clear understanding of the critical importance of planning and documentation in managing a long-term project",
       features: [
