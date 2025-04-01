@@ -39,13 +39,20 @@
     }
   }
 
-  .skills, .projects, .about {
+  .skills, .about {
     padding: 50px 20px;
     color: whitesmoke;
 
     h2 {
       text-align: center;
-      font-size: 2.5rem;
+      font-size: 4rem;
+      margin-bottom: 30px;
+      color: white;
+    }
+
+    h4 {
+      text-align: center;
+      font-size: 1.5rem;
       margin-bottom: 30px;
       color: white;
     }
@@ -72,39 +79,9 @@
     }
   }
 
-  .projects {
-    .project-card {
-      display: flex;
-      flex-direction: column;
-      background-color: #f4f4f4;
-      margin: 20px;
-      padding: 20px;
-      border-radius: 10px;
-      width: 300px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
-      img {
-        max-width: 100%;
-        border-radius: 5px;
-      }
-
-      .project-info {
-        margin-top: 20px;
-
-        h3 {
-          font-size: 1.5rem;
-        }
-
-        p {
-          font-size: 1rem;
-        }
-      }
-    }
-  }
-
   .about {
-    p {
-      font-size: 1rem;
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }

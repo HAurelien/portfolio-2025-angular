@@ -52,13 +52,13 @@ export class HomeComponent {
       title: 'Software Development',
       description: 'My experience, mostly in OOP: from java server apps to python softwares or C# games',
       icon: 'icons/brain_cogwheel.png',
-      onClick: () => {this.router.navigate(["/home", "skills"], {queryParams: {type: ["backend"]}})}
+      onClick: () => {this.router.navigate(["/skills"], {queryParams: {type: ["backend"]}})}
     },
     {
       title: 'Frontend Dev',
       description: 'My experience in developing frontend of my server apps',
       icon: 'icons/front-end.png',
-      onClick: () => {this.router.navigate(["/home", "skills"], {queryParams: {type: ["frontend"]}})}
+      onClick: () => {this.router.navigate(["/skills"], {queryParams: {type: ["frontend"]}})}
     },
   ];
 }
