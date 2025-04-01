@@ -12,11 +12,6 @@ export class HomeComponent {
 
   backgroundImageUrl = "images/background_home.jpg"
 
-  
-  click_contact_me(){
-    this.router.navigate(["/", "contact"])
-  }
-
   words: any[] = [
     { text: 'C++', value: 35 },
     { text: 'C#', value: 30 },
@@ -66,95 +61,4 @@ export class HomeComponent {
       onClick: () => {this.router.navigate(["/skills"], {queryParams: {type: ["frontend"]}})}
     },
   ];
-
-  carousel_images : { image: string, title: string, link: string }[][] =  [[    
-    {
-      image: "biography/games/general_games.png",
-      link: "",
-      title: ""
-    },
-    {
-      image: "biography/games/galacticraft.png",
-      link: "",
-      title: ""
-    },
-    {
-      image: "biography/games/ae2.png",
-      link: "",
-      title: ""
-    },
-    {
-      image: "biography/games/minecraft_mod_failed.png",
-      link: "",
-      title: ""
-    },
-  ],
-  [
-    {
-      image: "biography/softwares/rpgmakermv.png",
-      link: "",
-      title: ""
-    },
-    {
-      image: "biography/softwares/sonyvegaspro14.png",
-      link: "",
-      title: ""
-    },
-    {
-      image: "biography/softwares/blender.png",
-      link: "",
-      title: ""
-    },
-    {
-      image: "biography/softwares/unity.png",
-      link: "",
-      title: ""
-    },
-  ],
-  [
-    {
-      image: "biography/games/python_text_game_example.png",
-      link: "",
-      title: ""
-    },
-    {
-      image: "biography/games/graven_python_tutorial.png",
-      link: "",
-      title: ""
-    },
-    {
-      image: "biography/studies/iutlyon1.png",
-      link: "",
-      title: ""
-    },
-    {
-      image: "biography/projects/file_full.png",
-      link: "",
-      title: ""
-    },
-  ],[
-    {
-      image: "biography/studies/acgsynergies.png",
-      link: "",
-      title: ""
-    },
-    {
-      image: "biography/projects/world-list.png",
-      link: "",
-      title: ""
-    },
-  ],
-  [
-    {
-      image: "biography/miscellaneous/questionmark.png",
-      link: "",
-      title: ""
-    },
-    {
-      image: "biography/miscellaneous/sweden.png",
-      link: "",
-      title: ""
-    },
-  ]
-]
 }
