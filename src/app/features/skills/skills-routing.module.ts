@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BackendComponent } from './backend/backend.component';
+import { GeneralComponent } from './general/general.component';
 
 const routes: Routes = [
   {
-    path: '', component: BackendComponent,
+    path: '', component: GeneralComponent,
   },
   {
     path: '**', redirectTo: ''

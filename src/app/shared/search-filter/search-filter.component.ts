@@ -1,28 +1,36 @@
-import { Component, EventEmitter, Output, Input } from '@angular/core';
+import { Component, EventEmitter, Output, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-search-filter',
   templateUrl: './search-filter.component.html',
   styleUrls: ['./search-filter.component.scss']
 })
-export class SearchFilterComponent {
+export class SearchFilterComponent implements OnInit {
   @Input() categoryList: string[] = [];
+  @Input() baseFilter: string[] = [];
   @Output() searchQueryChanged = new EventEmitter<string>();
   @Output() categoriesChanged = new EventEmitter<string[]>();
 
+  ngOnInit(): void {
+    if(this.baseFilter.length > 0){
+      console.log(this.baseFilter)
+      this.selectedCategories = this.baseFilter
+      this.onSearchChange()
+    }
+  }
+  
   searchQuery: string = '';
   selectedCategories: string[] = [];
   isFilterMenuOpen: boolean = false;
 
-  // Update search query
   onSearchChange(): void {
     this.searchQueryChanged.emit(this.searchQuery);
   }
 
-  // Toggle category selection
   toggleCategory(category: string, event: Event): void {
     const checkbox = (event.target as HTMLInputElement);
     let updatedSelectedCategories = [...this.selectedCategories];
+    console.log(updatedSelectedCategories)
 
     if (checkbox.checked) {
       updatedSelectedCategories.push(category);
@@ -34,7 +42,6 @@ export class SearchFilterComponent {
     this.categoriesChanged.emit(this.selectedCategories);
   }
 
-  // Toggle filter menu visibility
   toggleFilterMenu(): void {
     this.isFilterMenuOpen = !this.isFilterMenuOpen;
   }
