@@ -27,6 +27,10 @@ export class FooterComponent {
     };
 
     // Show the notification at the cursor's position
-    this.copyNotification.showNotification(position, 'Sent to clipboard!');
+    this.copyNotification.showNotification(position, 'Sent to clipboard !');
+  }
+
+  goToTop(){
+    scrollTo(0, 0)
   }
 }
