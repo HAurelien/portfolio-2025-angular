@@ -9,38 +9,46 @@
   ></app-search-filter>
     <div class="project-list-container">
       <ul class="project-list">
-        <li *ngFor="let project of filteredList$ | async" class="project-container">
-          <div class="header" (click)="toggleContent(project)">
-            <h3>{{ project.name }}</h3>
-            <p>{{ project.catchphrase }}</p>
-            <div class="toggle-icon" [ngClass]="{'collapsed': project.collapsed, 'expanded': !project.collapsed}">
-              <span></span>
-            </div>
-          </div>
-  
-          <div class="content" *ngIf="!project.collapsed">
-            <div class="description">
-              <p>{{ project.description }}</p>
-            </div>
-            <div class="features">
-              <div class="feature" *ngFor="let feature of project.features">
-                <div class="feature-image" (click)="openModal(feature.image)">
-                  <img [src]="feature.image" alt="Image failed loading...">
-                </div>
-                <div class="feature-text">
-                  <h4>{{ feature.title }}</h4>
-                  <p>{{ feature.description }}</p>
-                </div>
+        @for (project of filteredList$ | async; track $index) {
+          <li class="project-container">
+            <div class="header" (click)="toggleContent(project)">
+              <h3>{{ project.name }}</h3>
+              <p>{{ project.catchphrase }}</p>
+              <div class="toggle-icon" [ngClass]="{'collapsed': project.collapsed, 'expanded': !project.collapsed}">
+                <span></span>
               </div>
             </div>
-            <ul class="technologies">
-              <li *ngFor="let techno of project.technologies">
-                <img [src]="techno.icon" alt="" class="tech-icon">
-                <span>{{ techno.name }}</span>
-              </li>
-            </ul>
-          </div>
-        </li>
+          
+            @if (!project.collapsed) {
+              <div class="content">
+                <div class="description">
+                  <p>{{ project.description }}</p>
+                </div>
+                <div class="features">
+                  @for (feature of project.features; track $index) {
+                    <div class="feature">
+                      <div class="feature-image" (click)="openModal(feature.image)">
+                        <img [src]="feature.image" alt="Image failed loading...">
+                      </div>
+                      <div class="feature-text">
+                        <h4>{{ feature.title }}</h4>
+                        <p>{{ feature.description }}</p>
+                      </div>
+                    </div>
+                  }
+                </div>
+                <ul class="technologies">
+                  @for (techno of project.technologies; track $index) {
+                    <li>
+                      <img [src]="techno.icon" alt="" class="tech-icon">
+                      <span>{{ techno.name }}</span>
+                    </li>
+                  }
+                </ul>
+              </div>
+            }
+          </li>
+        }
       </ul>
     </div>
   </div>

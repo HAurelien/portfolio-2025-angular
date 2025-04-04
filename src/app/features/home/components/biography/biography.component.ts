@@ -7,11 +7,9 @@ import { Router } from '@angular/router';
   styleUrl: './biography.component.scss'
 })
 export class BiographyComponent {
-
-  constructor(private readonly router : Router){}
   
   click_contact_me(){
-    this.router.navigate(["/", "contact"])
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
   }
 
   carouselImages : { image: string, title: string, link: string }[][] =  [[    

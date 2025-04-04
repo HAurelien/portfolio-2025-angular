@@ -1,6 +1,12 @@
 body {
     margin: 0;
     background-color: #1a191d;
+    h2, h3, h4 {
+      font-family: "Robot Mono", sans-serif;
+    }
+    p {
+      font-family: "Poppins", sans-serif;
+    }
 }
 
 .fade-in {

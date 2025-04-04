@@ -12,17 +12,21 @@
   <button (click)="toggleFilterMenu()" class="filter-toggle">
     Filter by Categories
   </button>
-  <div class="categories" *ngIf="isFilterMenuOpen">
-    <div class="category" *ngFor="let category of categoryList">
-      <label class="category-label">
-        <input
-          type="checkbox"
-          [checked]="selectedCategories.includes(category)" 
-          (change)="toggleCategory(category, $event)"
-          class="custom-checkbox"
-        />
-        <span class="checkbox-text">{{ category }}</span>
-      </label>
+  @if(isFilterMenuOpen){
+    <div class="categories">
+      @for (category of categoryList; track $index){
+        <div class="category">
+          <label class="category-label">
+            <input
+              type="checkbox"
+              [checked]="selectedCategories.includes(category)" 
+              (change)="toggleCategory(category, $event)"
+              class="custom-checkbox"
+            />
+            <span class="checkbox-text">{{ category }}</span>
+          </label>
+        </div>
+      }
     </div>
-  </div>
+  }
 </div>

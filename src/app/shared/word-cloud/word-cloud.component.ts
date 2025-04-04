@@ -9,7 +9,6 @@ export class WordCloudComponent {
   @Input() words!: any[]
   
   onWorkClick($event: { event: MouseEvent; word: any; }) {
-    console.log(typeof $event.word)
   }
 
   rotate(datum: any, index: number){
