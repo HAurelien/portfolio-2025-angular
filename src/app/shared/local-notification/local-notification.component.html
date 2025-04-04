@@ -1,4 +1,5 @@
-<!-- copy-notification.component.html -->
-<div class="local-notification" *ngIf="visible" [ngStyle]="positionStyle">
-  <span>{{ message }}</span>
-</div>
+@if (visible){
+  <div class="local-notification" *ngIf="visible" [ngStyle]="positionStyle">
+    <span>{{ message }}</span>
+  </div>
+}

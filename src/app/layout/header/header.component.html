@@ -1,7 +1,9 @@
 <ul id="desktop-menu" class="menu">
-  <li *ngFor="let item of menuItems" class="menu-item">
-    <a class="menu-link" (click)="navigateTo(item.link)" href="javascript:void(0);">{{ item.label }}</a>
-  </li>
+  @for (item of menuItems; track $index){
+    <li class="menu-item">
+      <a class="menu-link" (click)="navigateTo(item.link)" href="javascript:void(0);">{{ item.label }}</a>
+    </li>
+  }
 </ul>
 
 <button (click)="toggleMenu()">Open Menu</button>
@@ -15,9 +17,11 @@
   
   <div class="mbl-overlay-container">
     <ul id="mobile-menu" class="menu">
-      <li *ngFor="let item of menuItems" class="menu-item">
-        <a (click)="navigateTo(item.link)" href="javascript:void(0);">{{ item.label }}</a>
-      </li>
+      @for (item of menuItems; track $index){
+        <li class="menu-item">
+          <a (click)="navigateTo(item.link)" href="javascript:void(0);">{{ item.label }}</a>
+        </li>
+      }
     </ul>
   </div>
 </div>

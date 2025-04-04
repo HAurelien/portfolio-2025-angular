@@ -13,7 +13,6 @@ export class SearchFilterComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.baseFilter.length > 0){
-      console.log(this.baseFilter)
       this.selectedCategories = this.baseFilter
       this.onSearchChange()
     }
@@ -30,7 +29,6 @@ export class SearchFilterComponent implements OnInit {
   toggleCategory(category: string, event: Event): void {
     const checkbox = (event.target as HTMLInputElement);
     let updatedSelectedCategories = [...this.selectedCategories];
-    console.log(updatedSelectedCategories)
 
     if (checkbox.checked) {
       updatedSelectedCategories.push(category);

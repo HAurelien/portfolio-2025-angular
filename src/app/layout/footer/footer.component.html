@@ -24,9 +24,11 @@
         </li>
       </ul>
     </div>
-    <div class="top-scroller">
-      <button (click)="goToTop()">▲</button>
-    </div>
+    @if (scrolled) {
+      <div class="top-scroller">
+        <button (click)="goToTop()">▲</button>
+      </div>
+    }
     <app-local-notification #localNotification></app-local-notification>
 </footer>
   
