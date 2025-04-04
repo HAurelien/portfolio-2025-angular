@@ -6,7 +6,6 @@ footer {
   background-color: #24262b;
   padding: 50px 20px;
   color: #808080;
-  font-family: 'Arial', sans-serif;
   gap: 40px;
   border-top: 2px solid #444;
   
@@ -116,6 +115,7 @@ footer {
     top: auto;
     left: auto;
     button {
+      cursor: pointer;
       min-height: 3em;
       min-width: 3em;
       border: 1px solid #c1c1c1bb;

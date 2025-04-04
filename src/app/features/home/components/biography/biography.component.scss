@@ -57,6 +57,7 @@
 
       h4 {
         align-self: center;
+        font-size: 2.2em;
       }
       
       .body {
@@ -66,25 +67,27 @@
         margin-inline: 2vw;
         
         p {
-          margin-block: 5vh;
-          margin-inline: 5vw;
-          font-size: 1em;
+          margin: 5vw;
+          font-size: 1.4em;
           &:first {
             margin-top: 10vh;
           }
         }
         button {
-          color: #d1d1d1;
-          background-color: #1e2227;
+          color: whitesmoke;
+          background-color: transparent;
           border: none;
           padding: 10px 20px;
-          border-radius: 5px;
-          font-size: 4em;
+          border-radius: 20px;
+          font-size: 1.4em;
           transition: background-color 0.3s ease, transform 0.3s ease;
+          transform: translateX(-20px);
+          font-family: "Poppins", sans-serif;
+          font-weight: normal;
 
           &:hover {
             background-color: #343b42;
-            transform: scale(1.1);
+            transform: scale(1.1) translateY(10px) translateX(10px);
             cursor: pointer;
           }
         }
