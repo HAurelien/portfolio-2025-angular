@@ -10,12 +10,12 @@ import { Router } from '@angular/router';
   imports: [CommonModule]
 })
 export class HeaderComponent {
+  
   isMenuOpen = false;
   
   menuItems = [
     { label: '// home', link: '/' },
     { label: '// experience', link: '/skills' },
-    { label: '// contact', link: '/contact' }
   ];
 
   constructor(private router: Router) {}
@@ -30,5 +30,9 @@ export class HeaderComponent {
 
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
+  }
+  
+  goToBottom() {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
   }
 }

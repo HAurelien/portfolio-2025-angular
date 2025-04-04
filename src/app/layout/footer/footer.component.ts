@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';
 import { LocalNotificationComponent } from '../../shared/local-notification/local-notification.component';
 import { fromEvent } from 'rxjs';
@@ -15,9 +15,9 @@ export class FooterComponent implements OnInit{
   scrolled = 0;
 
   ngOnInit(): void {
-    this.eventSubscription = fromEvent(window, "scroll").subscribe(e => {
+    this.eventSubscription = fromEvent(window, "scroll").subscribe(() => {
     this.onWindowScroll();
-  });
+    });
   }
 
   onWindowScroll() {
