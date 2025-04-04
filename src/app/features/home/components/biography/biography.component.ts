@@ -14,7 +14,7 @@ export class BiographyComponent {
     this.router.navigate(["/", "contact"])
   }
 
-  carousel_images : { image: string, title: string, link: string }[][] =  [[    
+  carouselImages : { image: string, title: string, link: string }[][] =  [[    
     {
       image: "biography/games/general_games.png",
       link: "",

@@ -1,29 +1,31 @@
-import { Component, computed, OnInit, Signal } from '@angular/core';
-import { Project } from '../models/project.model';
-import { BehaviorSubject } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { Project } from '../models/project.model';
 
 @Component({
-  selector: 'app-backend',
-  templateUrl: './backend.component.html',
-  styleUrl: './backend.component.scss'
+  selector: 'app-general',
+  templateUrl: './general.component.html',
+  styleUrl: './general.component.scss'
 })
-export class BackendComponent implements OnInit {
-  category_list: string[] = []
-  selected_categories: string[] = []
-  filtered_list$: BehaviorSubject<Project[]> = new BehaviorSubject<Project[]>([]);
+export class GeneralComponent implements OnInit {
+  
+  categoryList: string[] = []
+  selectedCategories: string[] = []
+  filteredList$: BehaviorSubject<Project[]> = new BehaviorSubject<Project[]>([]);
   searchQuery: string = '';
   selectedImage: string | null = null;
 
   constructor(private readonly activatedRoute: ActivatedRoute){}
 
   ngOnInit(): void {
-    this.category_list = [...new Set(this.project_list.flatMap(project => project.categories))];
-    this.filtered_list$.next(this.project_list);
-    this.activatedRoute.paramMap.subscribe(params => {
-      let category = params.get('type')
-      if(category != null) this.selected_categories.push(category);
-    });
+    this.categoryList = [...new Set(this.project_list.flatMap(project => project.categories))];
+    this.filteredList$.next(this.project_list);
+    let types : string[] = this.activatedRoute.snapshot.queryParams['type']
+    if (typeof types == 'string'){
+      types = [types]
+    }
+    if(types != null) this.selectedCategories = types
   }
 
   onSearchQueryChange(searchQuery: string): void {
@@ -32,43 +34,25 @@ export class BackendComponent implements OnInit {
   }
 
   onCategoriesChanged(selectedCategories: string[]): void {
-    this.selected_categories = selectedCategories;
-    this.updateFilteredList();
-  }
-
-  toggleCategory(category: string, event: Event): void {
-    const checkbox = (event.target as HTMLInputElement);
-
-    let updatedSelectedCategories = [...this.selected_categories];
-    if (checkbox.checked) {
-      updatedSelectedCategories.push(category);
-    } else {
-      updatedSelectedCategories = updatedSelectedCategories.filter(item => item !== category);
-    }
-
-    this.selected_categories = updatedSelectedCategories;
-
+    this.selectedCategories = selectedCategories;
     this.updateFilteredList();
   }
 
   updateFilteredList(): void {
-    let filteredProjects = this.project_list;
+    let filteredProjects : Project[] = this.project_list;
 
-    // Filter by selected categories
-    if (this.selected_categories.length > 0) {
-      filteredProjects = filteredProjects.filter(project =>
-        project.categories.some(category =>
-          this.selected_categories.includes(category)
-        )
-      );
+    if (this.selectedCategories.length > 0) {
+      filteredProjects = this.project_list.filter(project => this.selectedCategories.every(category => project.categories.includes(category)))
     }
     if (this.searchQuery) {
+      let lowercaseSearch = this.searchQuery.toLowerCase()
       filteredProjects = filteredProjects.filter(project =>
-        project.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-        project.description.toLowerCase().includes(this.searchQuery.toLowerCase())
+        project.name.toLowerCase().includes(lowercaseSearch) ||
+        project.description.toLowerCase().includes(lowercaseSearch) ||
+        project.catchphrase.toLocaleLowerCase().includes(lowercaseSearch)
       );
     }
-    this.filtered_list$.next(filteredProjects);
+    this.filteredList$.next(filteredProjects);
   }
 
   project_list : Project[] = [
