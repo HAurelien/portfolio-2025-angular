@@ -10,27 +10,29 @@ import { Router } from '@angular/router';
   imports: [CommonModule]
 })
 export class HeaderComponent {
+  
   isMenuOpen = false;
   
   menuItems = [
-    { label: '// home', link: '/home-section' },
-    { label: '// expertise', link: '/skills' },
-    { label: '// work', link: '/work' },
-    { label: '// experience', link: '/experience' },
-    { label: '// contact', link: '/contact' }
+    { label: '// home', link: '/' },
+    { label: '// experience', link: '/skills' },
   ];
 
   constructor(private router: Router) {}
 
-  // Method to handle navigation
   navigateTo(link: string): void {
     this.router.navigateByUrl(link);
+    
     if (this.isMenuOpen) {
-      this.toggleMenu(); // Close the menu after navigation
+      this.toggleMenu();
     }
   }
 
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
+  }
+  
+  goToBottom() {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
   }
 }

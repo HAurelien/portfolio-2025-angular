@@ -1,16 +1,18 @@
 <section>
     <ul>
-      <li *ngFor="let data of datas" class="list-item" (click)="onDataCLicked(data)">
-            <div class="item-content">
-                <div class="item-upper-block">
-                    <img [src]="data.icon" alt="icon">
-                    <h2 class="title">{{data.title}}</h2>
+        @for (data of datas; track $index){
+            <li class="list-item" (click)="onDataCLicked(data)">
+                <div class="item-content">
+                    <div class="item-upper-block">
+                        <img [src]="data.icon" alt="icon">
+                        <h2 class="title">{{data.title}}</h2>
+                    </div>
+                    <div class="description">
+                        <h3>{{data.description}}</h3>
+                    </div>
                 </div>
-                <div class="description">
-                    <h3>{{data.description}}</h3>
-                </div>
-            </div>
-        </li>
+            </li>
+        }
     </ul>
 </section>
   

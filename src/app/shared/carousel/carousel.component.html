@@ -1,20 +1,23 @@
-<section>
-    <main class="carousel-container">
-        <div class="carousel">
-            <div class="item" *ngFor="let item of items; let i = index" [class.active]="i === currentIndex">
-                <div class="carousel-image-container">
-                    <img [src]="item.image" [alt]="item.title" />
-                </div>
-                <a class="title" [href]="item.link">{{ item.title }}</a>
-            </div>
+<main class="carousel-container" #carouselContainer>
+  <div class="carousel">
+    @for (item of items; track $index){
+      <div class="item"  [class.active]="$index === currentIndex">
+        <div class="carousel-image-container">
+          <img [src]="item.image" [alt]="item.title" />
         </div>
-        <button class="btn prev" (click)="navigate('prev')">Prev</button>
-        <button class="btn next" (click)="navigate('next')">Next</button>
-        <div class="dots">
-            <span *ngFor="let dot of dots; let i = index" 
-                  (click)="selectItem(i)" 
-                  [class.active]="i === currentIndex" 
-                  class="dot"></span>
-        </div>
-    </main>
-</section>
+        <a class="title" [href]="item.link">{{ item.title }}</a>
+      </div>
+    }
+  </div>
+  @if (display_left_right) {
+  <button class="btn prev" (click)="navigate('prev')">Prev</button>
+  <button class="btn next" (click)="navigate('next')">Next</button>
+  }
+  <div class="dots">
+    @for (dot of dots; track $index){
+      <span (click)="selectItem($index)"
+      [class.active]="$index === currentIndex" 
+      class="dot"></span>
+    }
+  </div>
+</main>

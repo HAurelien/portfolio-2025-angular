@@ -1,28 +1,32 @@
 <div class="search-container">
-    <input 
-      type="text" 
-      [(ngModel)]="searchQuery" 
-      (input)="onSearchChange()" 
-      placeholder="Search for projects..."
-      class="search-bar"
-    />
-  </div>
-  
-  <div class="filter-menu">
-    <button (click)="toggleFilterMenu()" class="filter-toggle">
-      Filter by Categories
-    </button>
-    <div class="categories" *ngIf="isFilterMenuOpen">
-      <div class="category" *ngFor="let category of categoryList">
-        <label>
-          <input 
-            type="checkbox" 
-            [checked]="selectedCategories.includes(category)" 
-            (change)="toggleCategory(category, $event)" 
-          />
-          {{ category }}
-        </label>
-      </div>
+  <input 
+    type="text" 
+    [(ngModel)]="searchQuery" 
+    (input)="onSearchChange()" 
+    placeholder="Search for projects..."
+    class="search-bar"
+  />
+</div>
+
+<div class="filter-menu">
+  <button (click)="toggleFilterMenu()" class="filter-toggle">
+    Filter by Categories
+  </button>
+  @if(isFilterMenuOpen){
+    <div class="categories">
+      @for (category of categoryList; track $index){
+        <div class="category">
+          <label class="category-label">
+            <input
+              type="checkbox"
+              [checked]="selectedCategories.includes(category)" 
+              (change)="toggleCategory(category, $event)"
+              class="custom-checkbox"
+            />
+            <span class="checkbox-text">{{ category }}</span>
+          </label>
+        </div>
+      }
     </div>
-  </div>
-  
+  }
+</div>
