@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
   
-  isMenuOpen = false;
+  isMenuOpen : boolean = false;
   
   menuItems = [
     { label: '// home', link: '/' },
@@ -30,6 +30,7 @@ export class HeaderComponent {
 
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
+    console.log("Menu : " + this.isMenuOpen)
   }
   
   goToBottom() {

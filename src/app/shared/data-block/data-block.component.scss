@@ -110,3 +110,22 @@ section {
     }
   }
 }
+
+
+@media (max-width: 768px) {
+  ul {
+    flex-direction: column !important;
+    .list-item {
+      max-width: 90vw !important;
+      padding-inline: 0 !important;
+      margin-inline: 0 !important;
+
+      img {
+        max-width: 20vw !important;
+      }
+      .description::before {
+        left: -2px !important;
+      }
+    }
+  }
+}
