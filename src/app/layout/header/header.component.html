@@ -9,22 +9,24 @@
   </li>
 </ul>
 
-<button (click)="toggleMenu()">Open Menu</button>
-
-<div class="mbl-overlay" [class.mbl-overlay-active]="isMenuOpen">
-  <div class="mbl-overlay-bg"></div>
-  
-  <div class="close-bar">
-    <button class="btn-close" (click)="toggleMenu()">Close</button>
-  </div>
-  
-  <div class="mbl-overlay-container">
-    <ul id="mobile-menu" class="menu">
-      @for (item of menuItems; track $index){
+<div class="mbl-overlay-bg" [class.mbl-background-active]="isMenuOpen" (click)="toggleMenu()"></div>
+<div id="mobile-menu">
+  <button (click)="toggleMenu()" class="menu-toggle-btn">☰</button>
+  <div [class.mbl-overlay-active]="isMenuOpen" class="overlay-off">
+    <div class="close-bar">
+      <button class="btn-close" (click)="toggleMenu()">☰</button>
+    </div>
+    <div class="mbl-overlay-container">
+      <ul id="mobile-menu" class="menu">
+        @for (item of menuItems; track $index){
+          <li class="menu-item">
+            <a (click)="navigateTo(item.link)" href="javascript:void(0);">{{ item.label }}</a>
+          </li>
+        }
         <li class="menu-item">
-          <a (click)="navigateTo(item.link)" href="javascript:void(0);">{{ item.label }}</a>
+          <a class="menu-link" (click)="goToBottom(); toggleMenu()" href="javascript:void(0);">// contact me</a>
         </li>
-      }
-    </ul>
+      </ul>
+    </div>
   </div>
 </div>
