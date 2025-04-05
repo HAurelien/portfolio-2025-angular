@@ -11,13 +11,13 @@
     background-image: linear-gradient(to bottom, #1a191dFF 0%, #1a191d35 50%, #1a191dFF 100%), url("/images/background_home.jpg");
 
     h1 {
-      font-size: 8vh;
+      font-size: 4.5em;
       text-transform: uppercase;
       text-shadow: 1px 3px 11px rgba(0,0,0,.3);
     }
 
     h5 {
-      font-size: 22px;
+      font-size: 1.4em;
       text-transform: uppercase;
       font-weight: 500;
       margin-bottom: 20px;
@@ -82,5 +82,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+}
+
+/* Mobile/Desktop setup */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5em !important;
+  }
+  app-word-cloud {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  app-word-cloud {
+    display: block !important;
   }
 }

@@ -266,3 +266,13 @@
     }
   }
   
+  
+
+@media (max-width: 768px) {
+  p {
+    font-size: medium !important;
+  }
+  .feature {
+    flex-direction: column-reverse !important;
+  }
+}
