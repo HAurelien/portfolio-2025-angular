@@ -1,12 +1,21 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, signal, WritableSignal } from '@angular/core';
 
 @Component({
   selector: 'app-biography',
   templateUrl: './biography.component.html',
   styleUrl: './biography.component.scss'
 })
-export class BiographyComponent {
+export class BiographyComponent implements OnInit {
+  image_width : WritableSignal<string> = signal("25vw")
+  image_height : WritableSignal<string> = signal("25vw")
+
+  ngOnInit(): void {
+    if(window.innerWidth < 768){
+      console.log(window.innerWidth)
+      this.image_width.set("75vw")
+      this.image_height.set("40vw")
+    }
+  }
   
   click_contact_me(){
     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })

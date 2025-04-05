@@ -94,3 +94,35 @@
       }
     }
   }
+
+  
+/* Mobile/Desktop setup */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5em !important;
+  }
+  app-word-cloud {
+    display: none !important;
+  }
+  .slice, .final-slice {
+    text-align: center;
+    .body {
+      flex-direction: column !important;
+      .text-content {
+        margin-top: 5vh !important;
+        p {
+          word-wrap: normal;
+          text-align: start !important;
+          font-size: large !important;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  app-word-cloud {
+    display: block !important;
+  }
+}
