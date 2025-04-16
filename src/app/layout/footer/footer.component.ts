@@ -30,7 +30,7 @@ export class FooterComponent implements OnInit{
     }
   }
 
-  email = 'aurelienhabermacher@gmail.com';
+  email = 'aurelienhabermacher.pro@gmail.com';
   @ViewChild('localNotification') copyNotification!: LocalNotificationComponent;
   
 

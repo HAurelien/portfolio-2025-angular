@@ -151,7 +151,7 @@ footer {
         .mobile-mail {
           display: block !important;
           p {
-            font-size: 1em !important;
+            font-size: .8em !important;
           }
         }
       }
@@ -168,6 +168,9 @@ footer {
     .contact {
       .desktop-mail {
         display: block !important;
+        :last-child {
+          font-size: 0.90em !important;
+        }
       }
       .mobile-mail {
         display: none !important;

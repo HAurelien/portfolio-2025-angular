@@ -6,8 +6,8 @@
           <ul class="social-list">
             <li><a href="https://github.com/HAurelien" target="_blank">Github</a></li>
             <li><a href="https://fr.linkedin.com/in/aur%C3%A9lien-habermacher" target="_blank">Linkedin</a></li>
-            <li class="desktop-mail"><p (click)="copyEmail($event)">Copy mail<p> <p>(aurelienhabermacher&#64;gmail.com)</p></li>
-            <li class="mobile-mail"><a href="mailto:aurelienhabermacher@gmail.com">Mail</a><p>aurelienhabermacher&#64;gmail.com</p></li>
+            <li class="desktop-mail"><p (click)="copyEmail($event)">Copy mail<p> <p>({{email}})</p></li>
+            <li class="mobile-mail"><a href="mailto:{{email}}">Mail</a><p>{{email}}</p></li>
           </ul>
         </div>
       </div>
