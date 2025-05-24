@@ -103,12 +103,7 @@ export class BiographyComponent implements OnInit {
       image: "biography/miscellaneous/questionmark.png",
       link: "",
       title: ""
-    },
-    {
-      image: "biography/miscellaneous/sweden.png",
-      link: "",
-      title: ""
-    },
+    }
   ]
 ]
 }
